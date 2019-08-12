@@ -1,7 +1,3 @@
-terraform {
-  required_version = ">= 0.8, < 0.9"
-}
-
 provider "aws" {
   region = "us-east-1"
 }
@@ -17,7 +13,7 @@ resource "aws_instance" "example" {
               nohup busybox httpd -f -p "${var.server_port}" &
               EOF
 
-  tags {
+  tags = {
     Name = "terraform-example"
   }
 }
